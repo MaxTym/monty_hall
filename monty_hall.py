@@ -1,15 +1,11 @@
 import random
 
 
-def shuffle(prizes):
-    random.shuffle(prizes)
-
-
 def game(count):
     car = 0
     while count > 0:
         prizes = ['goat', 'goat', 'car']
-        shuffle(prizes)
+        random.shuffle(prizes)
         index = random.randrange(3)
         choice = random.choice(prizes)
         if choice == 'car':
@@ -21,14 +17,11 @@ def game_change_door(count):
     car = 0
     while count > 0:
         prizes = ['goat', 'goat', 'car']
-        shuffle(prizes)
+        random.shuffle(prizes)
         index = random.randrange(3)
-        for i, y in enumerate(prizes):
-            if i == index:
-                prizes.remove(y)
-        for i, y in enumerate(prizes):
-            if y == 'goat':
-                prizes.remove('goat')
+        prizes.remove(prizes[index])
+        if 'goat' in prizes:
+            prizes.remove('goat')
         if prizes[0] == 'car':
             car += 1
         count -= 1
