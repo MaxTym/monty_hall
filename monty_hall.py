@@ -35,7 +35,6 @@ def game_change_door(count):
     return car
 
 
-
 def half_and_half():
     x = game(500)
     y = game_change_door(500)
