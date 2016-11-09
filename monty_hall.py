@@ -13,6 +13,7 @@ def game(count):
         count -= 1
     return car
 
+
 def game_change_door(count):
     car = 0
     while count > 0:
