@@ -5,8 +5,7 @@ def shuffle(prizes):
     random.shuffle(prizes)
 
 
-def game():
-    count = 1000
+def game(count):
     car = 0
     while count > 0:
         prizes = ['goat', 'goat', 'car']
@@ -16,12 +15,9 @@ def game():
         if choice == 'car':
             car += 1
         count -= 1
-    print("Not changing a door: ", (car/1000)*100)
+    return car
 
-
-
-def game_change_door():
-    count = 1000
+def game_change_door(count):
     car = 0
     while count > 0:
         prizes = ['goat', 'goat', 'car']
@@ -36,12 +32,22 @@ def game_change_door():
         if prizes[0] == 'car':
             car += 1
         count -= 1
-    print("Changing door chance: ", (car/1000)*100)
+    return car
+
+
+
+def half_and_half():
+    x = game(500)
+    y = game_change_door(500)
+    print("Half and half chances to win: ", (((x + y)/1000)*100), '%')
 
 
 def main():
-    game()
-    game_change_door()
+    half_and_half()
+    not_changing_door_cars = game(1000)
+    print("Not changing a door: ", (not_changing_door_cars/1000)*100, '%')
+    changing_door_cars = game_change_door(1000)
+    print("Changing door chance: ", (changing_door_cars/1000)*100, '%')
 
 
 main()
