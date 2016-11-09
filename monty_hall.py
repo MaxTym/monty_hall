@@ -43,4 +43,5 @@ def main():
     print("Changing door chance: ", (changing_door_cars/1000)*100, '%')
 
 
-main()
+if __name__ == "__main__":
+    main()
